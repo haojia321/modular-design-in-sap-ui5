@@ -1,66 +1,66 @@
 {
-  "_version": "1.1.0",  
-  "sap.app": {
-	"_version": "1.3.0",
-	"id": "com.haojia.test.exam",
-	"type": "component",
-	"applicationVersion": {
-	  "version": "1.0.0"
-	},
-	"embeddedBy": "../"
-  },
-  "sap.ui": {
-	"_version": "1.3.0",
-	"technology": "UI5",
-	"deviceTypes": {
-	  "desktop": true,
-	  "tablet": true,
-	  "phone": true
-	},
-	"supportedThemes": [
-	  "sap_belize"
-	]
-  },
-  "sap.ui5": {
-	"_version": "1.3.0",
-	  "dependencies": {
-	  "minUI5Version": "1.30",
-	  "libs": {
-		"sap.m": {}
-	  }
-	},
-	"rootView": "com.haojia.test.exam.view.ExamMain",
-	"routing": {
-		"config": {
-			"routerClass": "com.haojia.test.util.ModularRouter",
-			"viewType": "XML",
-			"viewPath": "com.haojia.test.exam.view",
-			"transition": "show",
-			"controlId": "examMain",
-			"clearTarget": true,
-			"controlAggregation": "pages"
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.3.0",
+		"id": "com.haojia.test.exam",
+		"type": "component",
+		"applicationVersion": {
+			"version": "1.0.0"
 		},
-		"routes": [{
-			"name": "ExamList",
-			"pattern": "list",
-			"target": "ExamList"
-		},{
-			"name": "EditExam",
-			"pattern": "edit/{id}",
-			"target": "EditExam"
-		}],
-		"targets": {
-			"ExamList": {
-				"viewName": "ExamList",
-				"viewLevel": 0,
-				"transition": "show"
+		"embeddedBy": "../"
+	},
+	"sap.ui": {
+		"_version": "1.3.0",
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.2.0",
+		"dependencies": {
+			"minUI5Version": "1.30",
+			"libs": {
+				"sap.m": {}
+			}
+		},
+		"rootView": "com.haojia.test.exam.view.ExamMain",
+		"routing": {
+			"config": {
+				"routerClass": "com.haojia.test.util.ModularRouter",
+				"viewType": "XML",
+				"viewPath": "com.haojia.test.exam.view",
+				"transition": "show",
+				"controlId": "examMain",
+				"clearTarget": true,
+				"controlAggregation": "pages"
 			},
-			"EditExam": {
-				"viewName": "EditExam",
-				"viewLevel": 1,
-				"transition": "slide"
+			"routes": [{
+				"name": "ExamList",
+				"pattern": "list",
+				"target": "ExamList"
+			}, {
+				"name": "EditExam",
+				"pattern": "edit/{id}",
+				"target": "EditExam"
+			}],
+			"targets": {
+				"ExamList": {
+					"viewName": "ExamList",
+					"viewLevel": 0,
+					"transition": "show"
+				},
+				"EditExam": {
+					"viewName": "EditExam",
+					"viewLevel": 1,
+					"transition": "slide"
+				}
 			}
 		}
-     }
-  }
+	}
 }
