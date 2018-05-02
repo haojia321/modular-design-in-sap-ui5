@@ -1,0 +1,4 @@
+<mvc:View controllerName="com.haojia.test.exam.controller.EditExam" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" height="100%">
+	<Label text="Exam id: {/id}"/>
+	<Label text="id is defined in route pattern"/>
+</mvc:View>

@@ -1,0 +1,67 @@
+{
+  "_version": "1.1.0",
+  "sap.app": {
+	"_version": "1.3.0",
+	"id": "com.haojia.test.app",
+	"type": "application",
+	"applicationVersion": {
+	  "version": "1.0.0"
+	},
+	"embeds": ["student", "exam"]
+  },
+  "sap.ui": {
+	"_version": "1.3.0",
+	"technology": "UI5",
+	"deviceTypes": {
+	  "desktop": true,
+	  "tablet": true,
+	  "phone": true
+	},
+	"supportedThemes": [
+	  "sap_belize"
+	]
+  },
+  "sap.ui5": {
+	"_version": "1.3.0",
+	"componentUsages": {
+	    "student": {
+	      "name": "com.haojia.test.student",
+	      "componentData": {
+	    	  "routePatternPrefix": "student&/"
+	      }
+	    },
+	    "exam": {
+	      "name": "com.haojia.test.exam",
+	      "componentData": {
+	    	  "routePatternPrefix": "exam&/"
+	      }
+	    }
+	},
+	"dependencies": {
+	  "minUI5Version": "1.30",
+	  "libs": {
+		"sap.m": {}
+	  },
+	  "components": {
+		  "com.haojia.test.student": {},
+		  "com.haojia.test.exam": {}
+	  }
+	},
+	"rootView": "com.haojia.test.applicationContainer.view.App",
+	"routing": {
+		"config": {
+			"routerClass": "com.haojia.test.util.ModularRouter",
+			"viewType": "XML",
+			"viewPath": "com.haojia.test.adminLayout.view",
+			"transition": "show",
+			"controlId": "app",
+			"clearTarget": true,
+			"controlAggregation": "pages"
+		},
+		"routes": [{
+			"name": "App",
+			"pattern": "{module}&:all*:"
+		}]
+	}
+  }
+}

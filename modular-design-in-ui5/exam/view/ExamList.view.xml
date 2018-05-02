@@ -1,0 +1,9 @@
+<mvc:View controllerName="com.haojia.test.exam.controller.ExamList" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" height="100%">
+	<Page showHeader="false">
+		<List items="{path:'/'}">
+			<items>
+				<StandardListItem title="{name}" type="Navigation" press="onPress"/>
+			</items>
+		</List>
+	</Page>
+</mvc:View>

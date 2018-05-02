@@ -1,0 +1,9 @@
+<mvc:View
+	controllerNamed="com.haojia.test.student.controller.StudentMain"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	height="100%">
+	<NavContainer id="studentMain"
+		height="100%">
+	</NavContainer>
+</mvc:View>
