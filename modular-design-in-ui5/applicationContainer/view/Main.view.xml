@@ -1,0 +1,1 @@
+<mvc:View controllerName="com.haojia.test.applicationContainer.controller.Main" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"></mvc:View>

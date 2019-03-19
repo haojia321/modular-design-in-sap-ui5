@@ -1,16 +1,15 @@
-jQuery.sap.require("com.haojia.test.util.ModularRouter");
 sap.ui.define([
-	"sap/ui/core/UIComponent",
+	"com/haojia/test/control/BaseComponent",
 	"sap/ui/model/json/JSONModel"
-], function(UIComponent, JSONModel, ComponentHelper) {
+], function (BaseComponent, JSONModel) {
 	"use strict";
-	return UIComponent.extend("com.haojia.test.exam.Component", {
+	return BaseComponent.extend("com.haojia.test.exam.Component", {
 		metadata: {
 			manifest: "json"
 		},
-		init: function() {
+		init: function () {
 			var self = this;
-			UIComponent.prototype.init.apply(self, arguments);
+			BaseComponent.prototype.init.apply(self, arguments);
 			self.getRouter().initialize();
 		}
 	});

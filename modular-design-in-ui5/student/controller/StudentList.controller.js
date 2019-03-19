@@ -1,11 +1,10 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller",
-	"sap/m/MessageToast"
-], function(Controller, MessageToast) {
+	"sap/ui/core/mvc/Controller"
+], function (Controller) {
 	"use strict";
 
 	return Controller.extend("com.haojia.test.student.controller.StudentList", {
-		onInit: function() {
+		onInit: function () {
 			var dummyData = [];
 			dummyData.push({
 				name: 'Jim',
@@ -22,7 +21,7 @@ sap.ui.define([
 			this.studentListModel = new sap.ui.model.json.JSONModel(dummyData);
 			this.getView().setModel(this.studentListModel);
 		},
-		onPress: function(e) {
+		onPress: function (e) {
 			var id = e.getSource().getBindingContext().getObject().id;
 			var router = sap.ui.core.UIComponent.getRouterFor(this);
 			router.navTo('EditStudent', {

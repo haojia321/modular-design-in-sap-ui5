@@ -1,25 +1,3 @@
-<mvc:View controllerName="com.haojia.test.applicationContainer.controller.App" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
-	xmlns:tnt="sap.tnt" xmlns:l="sap.ui.layout" xmlns:hj="com.haojia.test.util">
-	<App id="app">
-		<Page showHeader="false" backgroundDesign="Standard">
-			<l:DynamicSideContent containerQuery="true" sideContentFallDown="BelowM" showSideContent="false"
-				breakpointChanged="handleBreakpointChangeEvent">
-				<l:mainContent>
-					<tnt:ToolHeader >
-						<Button text="Go to Student Module" type="Transparent" press="studentList">
-							<layoutData>
-								<OverflowToolbarLayoutData priority="NeverOverflow"/>
-							</layoutData>
-						</Button>
-						<Button text="Go to Exam Module" type="Transparent" press="examList">
-							<layoutData>
-								<OverflowToolbarLayoutData priority="NeverOverflow"/>
-							</layoutData>
-						</Button>
-					</tnt:ToolHeader>
-					<hj:ComponentLoader id="applicationComponentLoader"></hj:ComponentLoader>
-				</l:mainContent>
-			</l:DynamicSideContent>
-		</Page>
-	</App>
+<mvc:View controllerName="com.haojia.test.applicationContainer.controller.App" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" displayBlock="true">
+	<App id="adminShell"></App>
 </mvc:View>

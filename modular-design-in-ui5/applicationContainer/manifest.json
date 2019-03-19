@@ -47,21 +47,39 @@
 				"com.haojia.test.exam": {}
 			}
 		},
+		"componentData": {
+	    	"routePatternPrefix": "modularDemo/"
+	    },
 		"rootView": "com.haojia.test.applicationContainer.view.App",
 		"routing": {
 			"config": {
-				"routerClass": "com.haojia.test.util.ModularRouter",
+				"routerClass": "com.haojia.test.control.ModularRouter",
 				"viewType": "XML",
-				"viewPath": "com.haojia.test.adminLayout.view",
+				"viewPath": "com.haojia.test.applicationContainer.view",
 				"transition": "show",
-				"controlId": "app",
+				"controlId": "adminShell",
 				"clearTarget": true,
 				"controlAggregation": "pages"
 			},
 			"routes": [{
-				"name": "App",
-				"pattern": "{module}&:all*:"
-			}]
+				"pattern": "",
+				"name": "Main",
+				"target": "Main"
+			}, {
+				"pattern": "{module}&:all*:",
+				"name": "AppShell",
+				"target": "AppShell"
+			}],
+			"targets": {
+				"Main": {
+					"viewName": "Main",
+					"viewLevel": 0
+				},
+				"AppShell": {
+					"viewName": "AppShell",
+					"viewLevel": 0
+				}
+			}
 		}
 	}
 }

@@ -29,18 +29,22 @@
 				"sap.m": {}
 			}
 		},
-		"rootView": "com.haojia.test.student.view.StudentMain",
+		"rootView": "com.haojia.test.student.view.StudentApp",
 		"routing": {
 			"config": {
-				"routerClass": "com.haojia.test.util.ModularRouter",
+				"routerClass": "com.haojia.test.control.ModularRouter",
 				"viewType": "XML",
 				"viewPath": "com.haojia.test.student.view",
 				"transition": "show",
-				"controlId": "studentMain",
+				"controlId": "studentApp",
 				"clearTarget": true,
 				"controlAggregation": "pages"
 			},
 			"routes": [{
+				"name": "StudentMain",
+				"pattern": "",
+				"target": "StudentMain"
+			}, {
 				"name": "StudentList",
 				"pattern": "list",
 				"target": "StudentList"
@@ -50,6 +54,11 @@
 				"target": "EditStudent"
 			}],
 			"targets": {
+				"StudentMain": {
+					"viewName": "StudentMain",
+					"viewLevel": 0,
+					"transition": "show"
+				},
 				"StudentList": {
 					"viewName": "StudentList",
 					"viewLevel": 0,
