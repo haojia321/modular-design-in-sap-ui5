@@ -25,7 +25,7 @@ sap.ui.define([
 		onPress: function(e) {
 			var id = e.getSource().getBindingContext().getObject().id;
 			var router = sap.ui.core.UIComponent.getRouterFor(this);
-			router.navTo('EditExam', {
+			router.navTo('edit', {
 				id: id
 			});
 		}
