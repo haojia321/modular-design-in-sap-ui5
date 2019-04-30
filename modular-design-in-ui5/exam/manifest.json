@@ -29,10 +29,15 @@
 				"sap.m": {}
 			}
 		},
-		"rootView": "com.haojia.test.exam.view.ExamApp",
+		"rootView": {
+			"viewName": "com.haojia.test.exam.view.ExamApp",
+			"type": "XML",
+			"async": true
+		},
 		"routing": {
 			"config": {
-				"routerClass": "com.haojia.test.control.ModularRouter",
+				"async": true,
+				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
 				"viewPath": "com.haojia.test.exam.view",
 				"transition": "show",
@@ -41,15 +46,15 @@
 				"controlAggregation": "pages"
 			},
 			"routes": [{
-				"name": "ExamApp",
+				"name": "app",
 				"pattern": "",
 				"target": "ExamApp"
 			}, {
-				"name": "ExamList",
+				"name": "list",
 				"pattern": "list",
 				"target": "ExamList"
 			}, {
-				"name": "EditExam",
+				"name": "edit",
 				"pattern": "edit/{id}",
 				"target": "EditExam"
 			}],

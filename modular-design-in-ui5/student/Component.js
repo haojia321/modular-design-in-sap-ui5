@@ -9,9 +9,7 @@ sap.ui.define([
 		init: function () {
 			var self = this;
 			BaseComponent.prototype.init.apply(self, arguments);
-			setTimeout(function () {
-				self.getRouter().initialize();
-			}, 3000);
+			self.getRouter().initialize();
 		}
 	});
 });
