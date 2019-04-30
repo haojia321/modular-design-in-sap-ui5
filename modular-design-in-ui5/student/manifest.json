@@ -29,10 +29,15 @@
 				"sap.m": {}
 			}
 		},
-		"rootView": "com.haojia.test.student.view.StudentApp",
+		"rootView": {
+			"viewName": "com.haojia.test.student.view.StudentApp",
+			"type": "XML",
+			"async": true
+		},
 		"routing": {
 			"config": {
-				"routerClass": "com.haojia.test.control.ModularRouter",
+				"async": true,
+				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
 				"viewPath": "com.haojia.test.student.view",
 				"transition": "show",
