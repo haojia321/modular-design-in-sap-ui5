@@ -1,3 +1,30 @@
 <mvc:View controllerName="com.haojia.test.applicationContainer.controller.App" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" displayBlock="true">
-	<App id="adminShell"></App>
+	<App id="adminShell">
+		<Page>
+			<headerContent>
+				<OverflowToolbar class="moduleHeader">
+					<ToolbarSpacer/>
+					<Button text="Go to Student Module" type="Transparent" press="studentMain">
+						<layoutData>
+							<OverflowToolbarLayoutData priority="NeverOverflow"/>
+						</layoutData>
+					</Button>
+					<Button text="Go to Student Module -> List View" type="Transparent" press="studentList">
+						<layoutData>
+							<OverflowToolbarLayoutData priority="NeverOverflow"/>
+						</layoutData>
+					</Button>
+					<Button text="Go to Exam Module -> List View" type="Transparent" press="examList">
+						<layoutData>
+							<OverflowToolbarLayoutData priority="NeverOverflow"/>
+						</layoutData>
+					</Button>
+				</OverflowToolbar>
+			</headerContent>
+			<content>
+				<NavContainer id="container">
+				</NavContainer>
+			</content>
+		</Page>
+	</App>
 </mvc:View>

@@ -1,44 +1,30 @@
 sap.ui.define([
-	"com/haojia/test/control/BaseComponent",
-	"com/haojia/test/service/HostFacade"
-], function (BaseUIComponent, HostFacade) {
+	"com/haojia/test/control/BaseComponent"
+], function (BaseUIComponent) {
 	"use strict";
 	return BaseUIComponent.extend("com.haojia.test.applicationContainer.Component", {
 		metadata: {
-			manifest: "json",
-			properties: {
-				componentManager: {
-					type: 'sap.ui.core.Control'
-				},
-				securityHandler: {
-					type: 'sap.ui.core.Control'
-				}
-			}
+			manifest: "json"
 		},
 		init: function () {
 			BaseUIComponent.prototype.init.apply(this, arguments);
-			this.setHostFacade(new HostFacade());
-			this.getRouter().attachBypassed(null, this._handleRouteBypassed.bind(this));
+
+			var oRouter = this.getRouter();
+
+			oRouter.attachRouteMatched(this.hideBusyState.bind(this));
+			this.getRootControl().setBusyIndicatorDelay(0);
+			this.showBusyState();
+
 			this.getRouter().initialize();
+
 			$('body').addClass(this.getContentDensityClass());
+
 		},
-		setComponentManager: function (value) {
-			this.componentManager = value;
-			var hostFacade;
-			if (this.getHostFacade()) {
-				hostFacade = this.getHostFacade();
-			} else {
-				hostFacade = new HostFacade();
-				this.setHostFacade(hostFacade);
-			}
-			hostFacade.setComponentManager(value);
+		showBusyState: function() {
+			this.getRootControl().setBusy(true);
 		},
-		_handleRouteBypassed: function (oEvent) {
-			if (!window.location.hash || window.location.hash.length === 0) {
-				this.getRouter().navTo('AppShell', {
-					module: "student"
-				});
-			}
+		hideBusyState: function() {
+			this.getRootControl().setBusy(false);
 		}
 	});
 });

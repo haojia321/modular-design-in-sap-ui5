@@ -7,21 +7,64 @@
   <title>Modular Design in SAP UI5</title>
 	<script
 		id="sap-ui-bootstrap"
-		src="https://openui5.hana.ondemand.com/1.61.0/resources/sap-ui-core.js"
+		src="https://openui5nightly.hana.ondemand.com/resources/sap-ui-core.js"
 		data-sap-ui-theme="sap_belize"
 		data-sap-ui-libs="sap.m,sap.ui.layout,sap.uxap"
 		data-sap-ui-compatVersion="edge"
 		data-sap-ui-preload="async"
-		data-sap-ui-xx-bindingSyntax="complex"
-		data-sap-ui-onInit="module:sap/ui/core/ComponentSupport"
+		data-sap-ui-xx-componentPreload="off"
+		data-sap-ui-onInit1="module:sap/ui/core/ComponentSupport"
 		data-sap-ui-resourceroots='{
 			"com.haojia.test": "./"
 		}'>	
 	</script>
+	<script>
+	
+		sap.ui.getCore().attachInit(function() {
+
+			sap.ui.require(["sap/ui/core/Component", "sap/ui/core/ComponentContainer"], function(Component, ComponentContainer) {
+
+				fetch(sap.ui.require.toUrl("com/haojia/test/applicationContainer/manifest.json")).then(function(response) {
+					return response.json();
+				}).then(function(manifest) {
+
+					var routes = [];
+					var targets = {};
+					Object.keys(manifest["sap.ui5"]["componentUsages"]).forEach(function(sUsageId) {
+						var oUsage = manifest["sap.ui5"]["componentUsages"][sUsageId];
+						routes.push({
+							"pattern": routes.length == 0 ? ["", sUsageId] : sUsageId,
+							"name": sUsageId,
+							"target": {
+								"name": sUsageId,
+								"prefix": sUsageId + "-prefix"
+							}
+						});
+						targets[sUsageId] = {
+							"type": "Component",
+							"usage": sUsageId,
+							"id": sUsageId
+						};
+					})
+
+					manifest["sap.ui5"]["routing"]["routes"] = routes;
+					manifest["sap.ui5"]["routing"]["targets"] = targets;
+
+					new ComponentContainer({
+						manifest: manifest
+					}).placeAt("content");
+
+				});
+
+			})
+
+		});
+	
+	</script>
 </head>
 <body class="sapUiBody">
-	<div data-sap-ui-component 
-		data-name="com.haojia.test.applicationContainer" 
-		data-settings='{"componentData": {"routePatternPrefix": "modularDemo/"}}'></div>
+	<div id="content" data-sap-ui-component
+		data-name="com.haojia.test.applicationContainer"
+		data-settings='{}'></div>
 </body>
 </html>

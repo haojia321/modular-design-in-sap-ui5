@@ -1,4 +1,3 @@
-jQuery.sap.require("com.haojia.test.control.ModularRouter");
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/model/json/JSONModel"

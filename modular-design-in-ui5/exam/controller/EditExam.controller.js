@@ -6,7 +6,7 @@ sap.ui.define([
 
 	return Controller.extend("com.haojia.test.exam.controller.EditExam", {
 		onInit: function() {
-			sap.ui.core.UIComponent.getRouterFor(this).getRoute("EditExam").attachPatternMatched(this.onRoutePatternMatched, this);
+			sap.ui.core.UIComponent.getRouterFor(this).getRoute("edit").attachPatternMatched(this.onRoutePatternMatched, this);
 			this.getView().setModel(new sap.ui.model.json.JSONModel({}));
 		},
 		onRoutePatternMatched: function(e) {
